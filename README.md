@@ -23,8 +23,8 @@ The dataset is modeled with four main entities:
     (
     	city_id	INT PRIMARY KEY,
     	city_name VARCHAR(15),	
-    	population	BIGINT,
-    	estimated_rent	FLOAT,
+    	population BIGINT,
+    	estimated_rent FLOAT,
     	city_rank INT
     );
     
@@ -48,9 +48,9 @@ The dataset is modeled with four main entities:
     CREATE TABLE sales
     (
     	sale_id	INT PRIMARY KEY,
-    	sale_date	date,
-    	product_id	INT,
-    	customer_id	INT,
+    	sale_date date,
+    	product_id INT,
+    	customer_id INT,
     	total FLOAT,
     	rating INT,
     	CONSTRAINT fk_products FOREIGN KEY (product_id) REFERENCES products(product_id),
