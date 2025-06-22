@@ -11,7 +11,6 @@ The dataset is modeled with four main entities:
 - `customers`: Customers located in specific cities.
 - `products`: Coffee product listings with pricing.
 - `sales`: Detailed records of sales transactions, including date, product, customer, amount, and rating.
-- 
 ---
 
 ## dataset:-
