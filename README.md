@@ -1,9 +1,9 @@
-# ☕ Coffee Sales Data Analysis with PostgreSQL
+#  Coffee Sales Data Analysis with PostgreSQL
 
 This project presents an in-depth **data analysis on coffee product sales** across multiple cities using **PostgreSQL**. It involves schema design, data modeling, and writing complex SQL queries to derive business insights.
 
 
-## 📊 Overview
+## Overview
 
 The dataset is modeled with four main entities:
 - `city`: Information about different cities, including population and rent estimates.
@@ -60,34 +60,34 @@ The dataset is modeled with four main entities:
 
  # How many people in each city are estimated to consume coffee?
 
-SELECT 
-    city_name,
-    ROUND((population * 0.25) / 1000000, 2) AS coffee_consumers_in_millions,
-    city_rank 
-FROM city
-ORDER BY coffee_consumers_in_millions DESC;
+        SELECT 
+            city_name,
+            ROUND((population * 0.25) / 1000000, 2) AS coffee_consumers_in_millions,
+            city_rank 
+        FROM city
+        ORDER BY coffee_consumers_in_millions DESC;
 
 # What is the total revenue generated from coffee sales per city?
 
-SELECT 
-    ci.city_name,
-    ROUND(SUM(s.total)::numeric, 2) AS total_revenue
-FROM sales s 
-JOIN customers c ON s.customer_id = c.customer_id
-JOIN city ci ON c.city_id = ci.city_id
-GROUP BY ci.city_name
-ORDER BY total_revenue DESC;
+        SELECT 
+            ci.city_name,
+            ROUND(SUM(s.total)::numeric, 2) AS total_revenue
+        FROM sales s 
+        JOIN customers c ON s.customer_id = c.customer_id
+        JOIN city ci ON c.city_id = ci.city_id
+        GROUP BY ci.city_name
+        ORDER BY total_revenue DESC;
 
 
  # How many units of each coffee product have been sold?
 
-SELECT 
-    p.product_name,
-    COUNT(s.sale_id) AS units_sold
-FROM products p
-JOIN sales s ON p.product_id = s.product_id
-GROUP BY p.product_name
-ORDER BY units_sold DESC;
+        SELECT 
+            p.product_name,
+            COUNT(s.sale_id) AS units_sold
+        FROM products p
+        JOIN sales s ON p.product_id = s.product_id
+        GROUP BY p.product_name
+        ORDER BY units_sold DESC;
 
 # What is the average sales amount per customer in each city?
 
@@ -186,5 +186,6 @@ ORDER BY units_sold DESC;
     ORDER BY city_rank;
 
 ## Screenshot
+
 ![Screenshot 2025-06-22 201033](https://github.com/user-attachments/assets/b03ef2e5-3c86-4030-810d-4dacdd52cf11)
 
